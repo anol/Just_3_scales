@@ -108,7 +108,7 @@ extern void PrintProgramInfo() {
 	UARTprintf("\n\n>");
 }
 //--------------------------------
-int main(void) {
+int main() {
 	Initialize();
 	PrintProgramInfo();
 	MainLoop();

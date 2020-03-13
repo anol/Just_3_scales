@@ -15,8 +15,7 @@ namespace aeo1 {
 class ssi_display: public ssi_peripheral {
 
 public:
-	ssi_display(ssi_peripheral::device_id nDevice);
-	virtual ~ssi_display();
+	explicit ssi_display(ssi_peripheral::device_id nDevice);
 
 public:
 	void Initialize();

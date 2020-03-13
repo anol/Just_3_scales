@@ -29,7 +29,7 @@ target_compile_definitions(Just_3_scales.elf PUBLIC
 
 target_link_options(Just_3_scales.elf PUBLIC
         -Wl,-Map=Just_3_scales.map
-        -T ${CMAKE_CURRENT_SOURCE_DIR}/EK_TM4C123GXL.ld)
+        -T ${CMAKE_CURRENT_SOURCE_DIR}/gcc.ld)
 
 target_include_directories(Just_3_scales.elf PUBLIC
         src
@@ -127,7 +127,8 @@ target_sources(Just_3_scales.elf PUBLIC
         src/main/main.cpp
         src/main/primary_activity.cpp
         src/main/primary_activity.h
-        src/main/tm4c123gh6pm_startup_ccs.c
+        src/main/startup_gcc.c
+#        src/main/tm4c123gh6pm_startup_ccs.c
         src/utils/cmdline.cpp
         src/utils/cmdline.h
         src/utils/uartstdio.cpp

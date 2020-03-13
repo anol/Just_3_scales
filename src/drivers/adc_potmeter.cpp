@@ -80,14 +80,14 @@ void adc_potmeter::Diag() {
 //--------------------------------
 void adc_potmeter::OnInterrupt() {
 	uint32_t* pBuffer = &m_nSequence[0];
-	uint32_t ulStatus = MAP_ADCIntStatus(adc_potmeter::ADCBase, adc_potmeter::Sequencer,
+	volatile uint32_t ulStatus = MAP_ADCIntStatus(adc_potmeter::ADCBase, adc_potmeter::Sequencer,
 			true);
 	m_nCounter++;
 	MAP_ADCIntClear(adc_potmeter::ADCBase, adc_potmeter::Sequencer);
 	m_nSamples = MAP_ADCSequenceDataGet(adc_potmeter::ADCBase, adc_potmeter::Sequencer,
 			pBuffer);
 	if (0 < m_nSamples) {
-		for (int nChannel = 0; m_nSamples > nChannel; nChannel++) {
+		for (uint32_t nChannel = 0; m_nSamples > nChannel; nChannel++) {
 			m_nChannel[nChannel] = m_nSequence[nChannel];
 		}
 		m_bUpdated = true;

@@ -55,4 +55,7 @@ SECTIONS
         *(COMMON)
         _ebss = .;
     } > SRAM
+
+    __bss_start__ = _bss;
+    __bss_end__ = _ebss;
 }
